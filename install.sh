@@ -508,13 +508,6 @@ docker exec -u www-data nextcloud_app php occ app:enable richdocuments
 
 # Set Collabora URL in Nextcloud
 info "Configuring Collabora URLs..."
-docker exec -u www-data nextcloud_app php occ config:app:set richdocuments wopi_url \
-    --value="https://${COLLABORA_DOMAIN}"
-docker exec -u www-data nextcloud_app php occ config:app:set richdocuments public_wopi_url \
-    --value="https://${COLLABORA_DOMAIN}"
-docker exec -u www-data nextcloud_app php occ richdocuments:activate-config 2>/dev/null || true
-
-success "Collabora connected to Nextcloud"
 
 # Set Collabora URL in Nextcloud
 docker exec -u www-data nextcloud_app php occ config:app:set richdocuments wopi_url \
